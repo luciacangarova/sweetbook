@@ -1,0 +1,39 @@
+{% extends 'sweetbook/myaccount.html' %}
+{% load staticfiles %}
+
+{% block child_style_block %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/mybakebook.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/myrecipes.css' %}">
+{% endblock %}
+
+{% block title_block %}
+	My Recipes
+{% endblock %}
+
+{% block content_block %}
+	<!--btuuon to add new recipe-->
+	<button id="add-new-recipe" onclick="visitPage('{% url 'sweetbook:new_recipe' %}');">Add New Repice</button>
+
+	{% if myrecipes %}
+		<div id="main-box">
+		{% for recipe in myrecipes %}
+
+			<div class="container black-container">
+				<!--recipe picture-->
+				<img class="image black-container" src="{{MEDIA_URL}}{{recipe.picture}}" alt="{{recipe.name}}" onerror="this.onerror=null;this.src='{% static 'images/default.jpg' %}';">
+				<!--recipe description-->
+				<p class="content">
+					<span class="content-header">{{recipe.name}}</span><br><br>
+					<img class="girl-image" src="{% static 'images/girl.jpg' %}">
+					<a href="{% url 'sweetbook:chosen_recipe' recipe.recipe_slug %}">Go to recipe</a><br><br>
+					<button id="delete-recipe" data-recid="{{recipe.id}}">Delete Recipe</button>
+				</p>
+			</div>
+			
+		{% endfor %}
+		</div>
+	{% else %}
+		<div class="center">No added recipes in My Recipes.</div>
+	{% endif %}
+
+{% endblock %}

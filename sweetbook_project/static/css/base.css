@@ -1,0 +1,77 @@
+body{
+	background-color: #b0b0b0;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 100%;
+	height: 100%;
+}
+
+button, input{
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	background-color: #ff9e42;
+	cursor: pointer;
+	text-align: center;
+	font-size: 100%;
+}
+
+/*default classes for styling*/
+.orange-container{
+	border: 2px solid #ff8b1f;	
+	background-color: white;
+}
+
+.black-container{
+	border: 2px solid #000;
+}
+
+.hundred-width{
+	width: 100%;
+}
+
+.center{
+	text-align: center;
+}
+
+/*top-bar with logo and signing buttons*/
+#logo{
+	height: 20%;
+	width: 20%;
+}
+
+#topbarright{
+	float: right;
+}
+
+#or{
+	margin: 10px;
+}
+
+/*menu bar with buttons*/
+#menu{
+	clear: both;
+}
+
+#menu button{
+	float: left;
+	width: 25%;
+	font-size: 120%;
+}
+
+/*rights reserved line*/
+#rights{
+	float: right;
+	clear:right;
+	margin-right: 2%;
+	font-size: 80%;
+}
+
+@media screen and (max-width: 800px){
+	#logo{
+		width: 40%;
+
+	}
+
+	#menu button{
+		height: 60px;
+		font-size: 90%;
+	}
+}	

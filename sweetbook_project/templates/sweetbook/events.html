@@ -1,0 +1,34 @@
+{% extends 'sweetbook/base.html' %}
+{% load staticfiles %}
+
+{% block style_block %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/events.css' %}">
+{% endblock %}
+
+<!--title-->
+{% block title_block %}
+	Events
+{% endblock %}
+
+{% block body_block %}
+	{% if events %}
+		{% for event in events %}
+			<!--main box of each event-->
+			<div class="container orange-container hundred-width">
+				<img src="{% static 'images/' %}{{event.event_slug}}.jpg" class="googleMap black-container" alt="Map of Event" />
+				<!--description of each event-->
+				<p class="content">
+					<span class="content-header">{{event.name}}</span><br><br>
+					<img class="cooks-image" src="{% static 'images/cooks.jpg' %}">
+					<b>Date: </b>{{event.date}}<br>
+					<b>Place: </b>{{event.place}}<br>
+					<b>Postcode: </b>{{event.postcode}}<br><br>
+					<a href="{% url 'sweetbook:chosen_event' event.event_slug %}">See more</a>
+				</p>
+			</div>
+		{% endfor %}
+	{% else %}
+		<!--if no events-->
+		<div id="no-events" class="orange-container hundred-width center">No events to be shown.</div>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,79 @@
+/*main container holding one recipe*/
+.container{
+	height: 350px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	clear: both;
+}
+
+/*image of recipe*/
+.image{
+	float: left;
+	margin: 2%;
+	margin-left: 2%;
+	max-width: 30%;
+	max-height: 86%;
+}
+
+/*recipe description*/
+.content{
+	margin: 3%;
+	float: right;
+	width: 58%;
+}
+
+.content-header{
+	font-size: 150%;
+}
+
+.girl-image{
+	width: 80px;
+	height: auto;
+	float: right;
+}
+
+#no-recipes{
+	height: auto;
+	margin-top: 3%;
+}
+
+@media screen and (max-width: 1000px){
+	.container{
+		height: 325px;
+	}
+}
+
+@media screen and (max-width: 800px){
+	.container{
+		height: 500px;
+		position: relative;
+	}
+
+	.image{
+		position: absolute;
+		max-height: 40%;
+		max-width: 90%;
+		top: 0px;
+		left: 0px;
+	}
+
+	.content{
+		position: absolute;
+		height: 50%;
+		width: 95%;
+		bottom: 0px;
+		left: 0px;
+	}
+}
+
+@media screen and (max-width: 650px){
+	.container{
+		height: 620px;
+	}
+}
+
+@media screen and (max-width: 600px){
+	.container{
+		height: 650px;
+	}
+}

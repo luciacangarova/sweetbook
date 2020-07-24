@@ -1,0 +1,112 @@
+{% extends 'sweetbook/base.html' %}
+{% load staticfiles %}
+
+<!--stylesheet-->
+{% block style_block %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/chosen_recipe.css' %}">
+{% endblock %}
+
+<!--title-->
+{% block title_block %}
+	{% if recipe %}
+		{{recipe.name}}
+	{% else %}
+		No recipe
+	{% endif %}
+{% endblock %}
+
+{% block body_block %}
+	{% if recipe %}
+		<!--title of recipe with save button-->
+		<div id="header">
+			<div class="orange-container">
+				{{recipe.name}}
+			</div>
+
+			{% if user.is_authenticated %}
+				<button id="save-recipe" data-recid="{{recipe.id}}">Save Recipe to my Bakebook</button>
+			{% endif %}
+		</div>
+
+		<!--main div with image and table-->
+		<div id="box-with-image-and-table" class="orange-container">
+
+			<img class="black-container" src="{{MEDIA_URL}}{{recipe.picture}}" alt="{{recipe.name}}" onerror="this.onerror=null;this.src='{% static 'images/default.jpg' %}';">
+
+			<table class="orange-container">
+				<tr>
+					<td class="head">Rating:</td>
+					<td><strong id="like_count">{{ recipe.rating }}</strong></td>
+				</tr>
+				<tr>
+					<td class="head">Difficulty:</td>
+					<td>{{recipe.difficulty}}</td>
+				</tr>
+				<tr>
+					<td class="head">Cooktime:</td>
+					<td>{{recipe.cooktime}} minutes</td>
+				</tr>
+				<tr>
+					<td class="head">Ingredients:</td>
+					<td>{{recipe.ingredients}}</td>
+				</tr>
+			</table>
+		</div>
+
+		<!--description of the recipe-->
+		<div id="description" class="orange-container">
+			<b>Description: </b><br>{{recipe.description}}
+		</div>
+
+		<!--comment box with rate and add comment buttons-->
+		<div id="comments-box" class="orange-container hundred-width">
+			<!--current comments-->
+			{% if comments %}
+				<div id="comment-left">
+					<div id="header-comment" class="black-container">Comments</div>
+					<div id="comment" class="black-container">
+						{% for comment in comments %}
+							<b>{{comment.user.username}}:</b> {{comment.description}}<br>
+						{% endfor %}
+					</div>
+				</div>
+			{% else %}
+				<div id="no-comment">No comments to be shown yet. </div>
+			{% endif %}
+
+			<!--add comment button-->
+			{% if user.is_authenticated %}
+		 	<div id="add-comment">
+			 <form id="comment-form" method="post">
+				 {% csrf_token %}
+				 <textarea name="comment" id="comment">
+
+				 </textarea>
+				 <input type="submit" id="submit" value="Add comment" data-recid="{{recipe.id}}">
+			 </form>
+		 </div>
+		{% endif %}
+
+
+			<!--image of girl-->
+			<img id="girl-image" src="{% static 'images/girl.jpg' %}">
+
+			<!--rating form-->
+			{% if user.is_authenticated %}
+				<div id="add-rating-box">
+					<div>Rate this recipe!</div>
+					<form id="add-rating" data-recid="{{recipe.id}}">
+						<input type="radio" id="rb-five" value="three">*****<br>
+						<input type="radio" id="rb-four" value="three">****<br>
+						<input type="radio" id="rb-three" value="three">***<br>
+						<input type="radio" id="rb-two" value="two">**<br>
+						<input type="radio" id="rb-one" value="one">*<br>
+					</form>
+				</div>
+			{% endif %}
+		</div>
+
+	{% else %}
+		<div id="no-recipe" class="orange-container">No recipe to be shown.</div>
+	{% endif %}
+{% endblock %}

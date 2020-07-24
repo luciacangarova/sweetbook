@@ -1,0 +1,192 @@
+/*visits*/
+#visits{
+	float: right;
+	margin-top: 2%;
+	margin-right: 2%;
+	padding-right: 2%;
+	padding-left: 2%;
+}
+
+/*top rated title*/
+#topratedhead{
+	clear: both;
+	width: 170px;
+	height: auto;
+	margin: 0px;
+}
+
+#stars{
+	color: #e46c0a;
+}
+
+/*slideshow*/
+#myCarousel{
+	margin: 0px;
+}
+
+.carousel-inner{
+	height: 50%; 
+	width: 50%;
+	margin-left: 25%;
+}
+
+.item-image{
+	height: 100%; 
+	width: 100%;
+}
+
+.item-text{
+	width:98%;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	margin: 5px;
+}
+
+.item-text span{
+	float: right;
+	margin-right: 2px;
+}
+
+.glyphicon{
+	background-color: #000;
+}
+
+/*recipe of the day box*/
+#recipeofday{
+	position: relative;
+	height: 620px;
+	width: 49%;
+	clear: left;
+	float: left;
+	margin-top: 10px;
+}
+
+#header-recipe, #header-event{
+	width: 150px;
+}
+
+#container-recipe, #container-event{
+	height: 100%;
+}
+
+#recipeofday img{
+	position: absolute;
+	top: 8%;
+	left: 5%;
+	max-height: 50%; 
+	max-width: 90%;
+}
+
+/*desciprion of the recipe*/
+#recipeofday p{
+	position: absolute;
+	padding: 2px;
+	bottom: 0px;
+	left: 5%;
+	max-width: 90%;
+	max-height: 40%;
+}
+
+/*latest events box*/
+#latestevents{
+	position: relative;
+	height: 250px;
+	width: 49%;
+	clear: right;
+	float: right;
+	margin-top: 10px;
+}
+
+#container-event{
+	overflow-y: scroll;
+}
+
+#latestevents li{
+	list-style: url("/static/images/bullet.jpg");
+}
+
+/*picture with characters*/
+#characters{
+	clear: right;
+	float: right;
+	margin-top: 40px;
+	width: 49%;
+	height: auto;
+}
+
+@media screen and (max-width: 1300px){
+	#recipeofday{
+		height: 600px;
+	}
+
+	#recipeofday p{
+		max-height: 50%;
+	}
+
+	#recipeofday img{
+		max-height: 45%; 
+	}
+}
+
+@media screen and (max-width: 1200px){
+	#recipeofday{
+		height: 550px;
+	}
+
+	#recipeofday p{
+		max-height: 60%;
+	}
+
+	#recipeofday img{
+		max-height: 35%; 
+	}
+}
+
+@media screen and (max-width: 1100px){
+	#recipeofday{
+		height: 500px;
+	}
+}
+
+@media screen and (max-width: 1000px){
+	#recipeofday{
+		height: 450px;
+	}
+
+	#recipeofday p{
+		max-height: 70%;
+	}
+
+	#recipeofday img{
+		max-height: 30%; 
+	}
+
+}
+
+@media screen and (max-width: 800px){
+	#rights{
+		width: 44%;
+	}
+
+	.item-text{
+		width: 90%;
+		font-size: 80%;
+	}
+
+	.carousel-indicators li{
+		width: 8px;
+		height: 8px;
+	}
+}
+
+@media screen and (max-width: 600px){
+	.item-text{
+		font-size: 70%;
+	}
+
+	.carousel-indicators li{
+		width: 6px;
+		height: 6px;
+	}
+}

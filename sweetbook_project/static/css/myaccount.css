@@ -1,0 +1,99 @@
+/*main buttons*/
+#headers button{
+	margin-top: 20px;
+	float:left;
+	width: 20%;
+}
+
+/*mainbox*/
+#content{
+	clear: both;
+	height: 500px;
+}
+
+/*image*/
+#content-left{
+	float: left;
+	max-width: 40%;
+	max-height: 80%;
+	margin: 3.5%;
+}
+
+/*table with button*/
+#content-right{
+	margin-top: 3.5%;
+	position: relative;
+	float: right;
+	width: 50%;
+	height: 400px;
+}
+
+#content-right table{
+	position: absolute;
+	width: 90%;
+	top: 10px;
+	right: 10%;
+	clear: both;
+}
+
+#content-right th, td{
+	border: 3px solid #ffc000;
+}
+
+/*button and images div*/
+#content-right div{
+	position: absolute;
+	bottom: 20px;
+	clear: both;
+}
+
+#content-right div img{
+	width: 80px;
+	margin: 10px;
+}
+
+/*if no account*/
+#no-login{
+	clear: both;
+	margin-top: 50px;
+}
+
+@media screen and (max-width: 800px){
+	#content{
+		position: relative;
+		height: 900px;
+	}
+
+	#content-left{
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		max-width: 90%;
+		max-height: 50%;
+	}
+
+	#content-right{
+		position: absolute;
+		bottom: 0px;
+		left: 0px;
+		width: 95%;
+		height: 40%;
+	}
+
+	#content-right table{
+		right: 20px;
+	}
+
+	#content-right div img{
+		width: 75px;
+	}
+
+	.head{
+		width: 25%;
+	}
+
+	#headers button{
+		width: 25%;
+		height: 60px;
+	}
+}

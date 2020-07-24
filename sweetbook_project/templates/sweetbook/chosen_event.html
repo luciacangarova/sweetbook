@@ -1,0 +1,57 @@
+{% extends 'sweetbook/base.html' %}
+{% load staticfiles %}
+
+{% block style_block %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/chosen_event.css' %}">
+{% endblock %}
+
+<!--title-->
+{% block title_block %}
+	{% if event %}
+		{{event.name}}
+	{% else %}
+		None
+	{% endif %}
+{% endblock %}
+
+{% block body_block %}
+	{% if event %}
+		<!--header with title and save button-->
+		<div id="content-header">
+			<div class="orange-container">
+				{{event.name}}
+			</div>
+
+			{% if user.is_authenticated %}
+				<button id="save-event" data-eventid="{{event.id}}">Participate in this event</button>
+			{% endif %}
+		</div>
+
+		<!--main box with map, table and image-->
+		<div id="container" class="orange-container hundred-width">
+			<iframe class="black-container"  src='{{event.url}}' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>
+			<table class="orange-container">
+				<tr>
+					<td class="head">Date:</td>
+					<td>{{event.date}}</td>
+				</tr>
+				<tr>
+					<td class="head">Place:</td>
+					<td>{{event.place}}</td>
+				</tr>
+				<tr>
+					<td class="head">Postcode:</td>
+					<td>{{event.postcode}}</td>
+				</tr>
+				<tr>
+					<td class="head">Description:</td>
+					<td>{{event.description}}</td>
+				</tr>
+			</table>
+			<img src="{% static 'images/woman.jpg' %}">
+		</div>
+	{% else %}
+		<!--if no event-->
+		<div id="no-event">No event to be shown.</div>
+	{% endif %}
+{% endblock %}
